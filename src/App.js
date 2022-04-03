@@ -7,7 +7,6 @@ function App() {
       .get("https://randomuser.me/api")
       .then((res) => {
         console.log(res);
-        return res;
       })
       .catch((err) => {
         console.log(err);
@@ -18,7 +17,7 @@ function App() {
       <h1>mem gen</h1>
       <button
         onClick={() => {
-          fetchMeme;
+          fetchMeme();
         }}
       >
         ok
