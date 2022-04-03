@@ -1,16 +1,21 @@
 import axios from "axios";
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  // const [memesAll, setMemesAll] = useState[''];
+  const [memesAll, setMemesAll] = useState([]);
+
+  useEffect(() => {
+    console.log(memesAll)
+  }
+  );
 
   const fetchMeme = () => {
     return axios
       .get("https://api.imgflip.com/get_memes")
       .then((res) => {
-        console.log(res.data.data.memes);
-        // console.log(memesAll);
+        setMemesAll(res.data.data.memes);
       })
       .catch((err) => {
         console.log(err);
@@ -20,9 +25,15 @@ function App() {
     <div className="App">
       <h1>mem gen</h1>
       <button onClick={fetchMeme}>ok</button>
-      {/* {memesAll.map((el)=>{
-        <h1>el</h1>
-      })} */}
+      {memesAll.map((el) => {
+        return (
+          <div key={el.id}>
+            <h1>{el.name}</h1>
+            <img src={el.url} alt={el.name + '-image'} />
+          </div>
+        )
+      })}
+
     </div>
   );
 }
