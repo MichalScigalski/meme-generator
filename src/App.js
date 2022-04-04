@@ -6,12 +6,15 @@ import Meme from './components/Meme';
 
 function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
-  const [currentTemplateId, setCurrentTemplateId] = useState(0);
+  const [currentTemplate, setCurrentTemplate] = useState(null);
 
+  
   useEffect(() => {
-    console.log(currentTemplateId)
+    console.log(currentTemplate)
+    console.log(memeTemplates);
   }
   );
+
 
   const fetchTemplatesMeme = () => {
     return axios
@@ -28,11 +31,16 @@ function App() {
     <div className="App">
       <h1>mem gen</h1>
       <button onClick={fetchTemplatesMeme}>Show Templates</button>
-      <div className="memes">
-        {memeTemplates.map((el, _index) =>
-          <Meme onClick={()=>setCurrentTemplateId(el.id)} key={_index} id={el.id} name={el.name} url={el.url} />
-        )}
-      </div>
+      {currentTemplate ?
+        <div className="creatingMeme">
+          <Meme onClick={() => setCurrentTemplate(null)} key={currentTemplate.id} key={currentTemplate.id} name={currentTemplate.name} url={currentTemplate.url} />
+        </div>
+        : <div className="memes">
+          {memeTemplates.map((el) =>
+            <Meme onClick={() => setCurrentTemplate(el)} key={el.id} name={el.name} url={el.url} />
+          )}
+        </div>
+      }
     </div>
   );
 }
