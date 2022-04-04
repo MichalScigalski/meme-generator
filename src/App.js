@@ -13,10 +13,17 @@ const objectToParam = (obj) => {
 function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
+  const [memeTextTop, setMemeTextTop] = useState('');
+  const [memeTextBottom, setMemeTextBottom] = useState('');
 
   useEffect(() => {
     console.log(currentTemplate)
   }, [currentTemplate]);
+
+  useEffect(() => {
+    console.log(memeTextTop);
+    console.log(memeTextBottom);
+  }, [memeTextTop, memeTextBottom])
 
 
   const fetchTemplatesMeme = () => {
@@ -38,10 +45,9 @@ function App() {
       template_id: currentTemplate.id,
       username: process.env.REACT_APP_IMGFLIP_USERNAME,
       password: process.env.REACT_APP_IMGFLIP_PASSWORD,
-      text0: 'gora',
-      text1: 'dol'
+      text0: memeTextTop,
+      text1: memeTextBottom
     }
-
 
     const response = await fetch(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
     const data = await response.json();
@@ -69,7 +75,7 @@ function App() {
     <div className="App">
       <h1>MemeGenerator</h1>
       {currentTemplate ?
-        <CreatingMeme onSubmit={createMeme} onClick={() => setCurrentTemplate(null)} url={currentTemplate.url} name={currentTemplate.name} />
+        <CreatingMeme handleTextTop={(e) => setMemeTextBottom(e.target.value)} handleTextBottom={(e) => setMemeTextTop(e.target.value)} onSubmit={createMeme} onClick={() => setCurrentTemplate(null)} url={currentTemplate.url} name={currentTemplate.name} />
         : <div className="memes">
           {memeTemplates.map((el) =>
             <Meme onClick={() => setCurrentTemplate(el)} key={el.id} name={el.name} url={el.url} />
