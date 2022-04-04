@@ -3,17 +3,15 @@ import "./App.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import Meme from './components/Meme';
+import CreatingMeme from "./components/CreatingMeme";
 
 function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
 
-  
   useEffect(() => {
     console.log(currentTemplate)
-    console.log(memeTemplates);
-  }
-  );
+  }, [currentTemplate]);
 
 
   const fetchTemplatesMeme = () => {
@@ -29,17 +27,9 @@ function App() {
   fetchTemplatesMeme();
   return (
     <div className="App">
-      <h1>mem gen</h1>
+      <h1>MemeGenerator</h1>
       {currentTemplate ?
-        <div className="creatingMeme">
-          <button onClick={() => setCurrentTemplate(null)}>Back to templates</button>
-          <form>
-            <img src={currentTemplate.url} title={currentTemplate.name} alt={currentTemplate.name+'-img'} />
-            <input type="text" name="text0" placeholder="text on top" />
-            <input type="text" name="text1" placeholder="text on bottom"/>
-            <button type="submit">Create meme</button>
-          </form>
-        </div>
+        <CreatingMeme onClick={() => setCurrentTemplate(null)} key={currentTemplate.id} url={currentTemplate.url} name={currentTemplate.name} />
         : <div className="memes">
           {memeTemplates.map((el) =>
             <Meme onClick={() => setCurrentTemplate(el)} key={el.id} name={el.name} url={el.url} />

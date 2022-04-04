@@ -1,12 +1,11 @@
-.memes{
+.memes {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.meme{
+.meme {
     background-color: whitesmoke;
     border-radius: 32px;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +13,7 @@
     cursor: pointer;
 }
 
-.meme img{
+.meme img {
     height: 300px;
+
 }
