@@ -26,14 +26,19 @@ function App() {
         console.log(err);
       });
   };
-
+  fetchTemplatesMeme();
   return (
     <div className="App">
       <h1>mem gen</h1>
-      <button onClick={fetchTemplatesMeme}>Show Templates</button>
       {currentTemplate ?
         <div className="creatingMeme">
-          <Meme onClick={() => setCurrentTemplate(null)} key={currentTemplate.id} key={currentTemplate.id} name={currentTemplate.name} url={currentTemplate.url} />
+          <button onClick={() => setCurrentTemplate(null)}>Back to templates</button>
+          <form>
+            <img src={currentTemplate.url} title={currentTemplate.name} alt={currentTemplate.name+'-img'} />
+            <input type="text" name="text0" placeholder="text on top" />
+            <input type="text" name="text1" placeholder="text on bottom"/>
+            <button type="submit">Create meme</button>
+          </form>
         </div>
         : <div className="memes">
           {memeTemplates.map((el) =>
