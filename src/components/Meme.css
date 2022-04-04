@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.mem{
+.meme{
     background-color: whitesmoke;
     border-radius: 32px;
     padding: 1rem;
@@ -14,6 +14,6 @@
     cursor: pointer;
 }
 
-.mem img{
+.meme img{
     height: 300px;
 }

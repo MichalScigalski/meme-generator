@@ -2,7 +2,7 @@ import axios from "axios";
 import "./App.css";
 import React from "react";
 import { useState, useEffect } from "react";
-import Mem from './components/Mem';
+import Meme from './components/Meme';
 
 function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
@@ -30,7 +30,7 @@ function App() {
       <button onClick={fetchTemplatesMeme}>Show Templates</button>
       <div className="memes">
         {memeTemplates.map((el, _index) =>
-          <Mem onClick={()=>setCurrentTemplateId(el.id)} key={_index} id={el.id} name={el.name} url={el.url} />
+          <Meme onClick={()=>setCurrentTemplateId(el.id)} key={_index} id={el.id} name={el.name} url={el.url} />
         )}
       </div>
     </div>
