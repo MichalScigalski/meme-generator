@@ -1,0 +1,37 @@
+.creatingMeme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.creatingMeme img{
+    height: 500px;
+    margin: 1rem;
+    border: 2px solid green;
+}
+
+.creatingMeme form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.creatingMeme form input{
+    padding: 8px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid green;
+    margin-bottom: 8px;
+}
+
+.creatingMeme button {
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
