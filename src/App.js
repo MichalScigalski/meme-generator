@@ -5,31 +5,33 @@ import { useState, useEffect } from "react";
 import Mem from './components/Mem';
 
 function App() {
-  const [memesAll, setMemesAll] = useState([]);
+  const [memeTemplates, setMemeTemplates] = useState([]);
+  const [currentTemplateId, setCurrentTemplateId] = useState(0);
 
   useEffect(() => {
-    console.log(memesAll)
+    console.log(currentTemplateId)
   }
   );
 
-  const fetchMeme = () => {
+  const fetchTemplatesMeme = () => {
     return axios
       .get("https://api.imgflip.com/get_memes")
       .then((res) => {
-        setMemesAll(res.data.data.memes);
+        setMemeTemplates(res.data.data.memes);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   return (
     <div className="App">
       <h1>mem gen</h1>
-      <button onClick={fetchMeme}>Show Templates</button>
+      <button onClick={fetchTemplatesMeme}>Show Templates</button>
       <div className="memes">
-          {memesAll.map((el, _index) =>
-            <Mem key={_index} id={el.id} name={el.name} url={el.url} />
-          )}
+        {memeTemplates.map((el, _index) =>
+          <Mem onClick={()=>setCurrentTemplateId(el.id)} key={_index} id={el.id} name={el.name} url={el.url} />
+        )}
       </div>
     </div>
   );

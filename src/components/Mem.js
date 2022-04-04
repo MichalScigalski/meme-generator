@@ -1,10 +1,10 @@
 import React from 'react'
 import './Mem.css';
-function Mem(props) {
+function Mem({ id, name, url, onClick }) {
     return (
-        <div id={props.id} className="mem">
-            <h1>{props.name}</h1>
-            <img src={props.url} alt={props.name + '-image'} />
+        <div onClick={onClick} id={id} className="mem">
+            <h1>{name}</h1>
+            <img src={url} alt={name + '-image'} />
         </div>
     )
 }
