@@ -14,18 +14,13 @@ const objectToParam = (obj) => {
 function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
-  const [memeTextTop, setMemeTextTop] = useState('');
-  const [memeTextBottom, setMemeTextBottom] = useState('');
+  const [memeTextFirst, setMemeTextFirst] = useState('');
+  const [memeTextSecond, setMemeTextSecond] = useState('');
   const [createdMeme, setCreatedMeme] = useState(null);
 
-  // useEffect(() => {
-  //   console.log(currentTemplate)
-  // }, [currentTemplate]);
-
-  // useEffect(() => {
-  //   console.log(memeTextTop);
-  //   console.log(memeTextBottom);
-  // }, [memeTextTop, memeTextBottom])
+  useEffect(() => {
+    console.log(currentTemplate)
+  }, [currentTemplate]);
 
   const fetchTemplatesMeme = () => {
     axios.get("https://api.imgflip.com/get_memes")
@@ -43,8 +38,8 @@ function App() {
       template_id: currentTemplate.id,
       username: process.env.REACT_APP_IMGFLIP_USERNAME,
       password: process.env.REACT_APP_IMGFLIP_PASSWORD,
-      text0: memeTextTop,
-      text1: memeTextBottom
+      text0: memeTextFirst,
+      text1: memeTextSecond,
     }
     axios.post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
       .then(res => {
@@ -62,10 +57,11 @@ function App() {
       <h1>MemeGenerator</h1>
       {currentTemplate ?
         createdMeme ?
-          <GeneratedMeme meme={createdMeme} onClick={() => setCreatedMeme(null)} />
-          : <CreatingMeme handleTextTop={(e) => setMemeTextBottom(e.target.value)} handleTextBottom={(e) => setMemeTextTop(e.target.value)} onSubmit={createMeme} onClick={() => setCurrentTemplate(null)} url={currentTemplate.url} name={currentTemplate.name} />
-
-        : <div className="memes">
+          <GeneratedMeme meme={createdMeme} onClick={() => { setCreatedMeme(null); setCurrentTemplate(null) }} />
+          :
+          <CreatingMeme handleTextFirst={(e) => setMemeTextFirst(e.target.value)} handleTextSecond={(e) => setMemeTextSecond(e.target.value)} onSubmit={createMeme} onClick={() => setCurrentTemplate(null)} url={currentTemplate.url} name={currentTemplate.name} />
+        :
+        <div className="memes">
           {memeTemplates.map((el) =>
             <Meme onClick={() => setCurrentTemplate(el)} key={el.id} name={el.name} url={el.url} />
           )}
