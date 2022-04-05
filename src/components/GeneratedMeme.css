@@ -1,0 +1,16 @@
+.GeneratedMeme{
+}
+
+.GeneratedMeme button{
+    cursor: pointer;
+    border: none;
+    font-size: 23px;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+}
+
+.GeneratedMeme img{
+    border: 1px solid green;
+}
