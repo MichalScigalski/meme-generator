@@ -6,3 +6,7 @@
 
 ### to do
 - [ ] ReactRouter
+- [ ] Loader
+- [ ] Styling
+- [ ] Download Meme
+- [ ] Alerts

@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import Meme from './components/Meme';
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
-import {ReactComponent as Loader} from './loader.svg';
-
+import { ReactComponent as Loader } from './loader.svg';
 
 const objectToParam = (obj) => {
   const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -53,13 +52,13 @@ function App() {
       });
   }
 
-  // useEffect(() => {
-  //   fetchTemplatesMeme();
-  // }, [])
+  useEffect(() => {
+    fetchTemplatesMeme();
+  }, [])
 
   return (
     <div className="App">
-      <Loader />
+      {/* <Loader /> */}
       <h1>MemeGenerator</h1>
       {currentTemplate ?
         createdMeme ?
