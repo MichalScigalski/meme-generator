@@ -25,10 +25,8 @@ function App() {
     console.log(memeTextBottom);
   }, [memeTextTop, memeTextBottom])
 
-
   const fetchTemplatesMeme = () => {
-    return axios
-      .get("https://api.imgflip.com/get_memes")
+    axios.get("https://api.imgflip.com/get_memes")
       .then((res) => {
         setMemeTemplates(res.data.data.memes);
       })
@@ -39,8 +37,9 @@ function App() {
 
   fetchTemplatesMeme();
 
-  const createMeme = async (e) => {
+  const createMeme = (e) => {
     e.preventDefault();
+
     const params = {
       template_id: currentTemplate.id,
       username: process.env.REACT_APP_IMGFLIP_USERNAME,
@@ -49,26 +48,10 @@ function App() {
       text1: memeTextBottom
     }
 
-    const response = await fetch(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
-    const data = await response.json();
-    console.log(data);
-
-    // e.preventDefault();
-    // console.log(e.formData);
-    // return axios
-    //   .post('https://api.imgflip.com/caption_image',{
-    //     template_id: currentTemplate.id,
-    //     username: 'chased01',
-    //     password: 'chased1234',
-    //     text0: 'gora',
-    //     text1: 'dol'
-    //   })
-    //   .then((res)=>{
-    //     console.log(res);
-    //   })
-    //   .then((err)=>{
-    //     console.log(err)
-    //   })
+    axios.post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
+      .then(res => {
+        console.log(res.data);
+      });
   }
 
   return (
