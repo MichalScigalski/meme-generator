@@ -1,5 +1,6 @@
 import React from 'react'
 import './GeneratedMeme.css'
+
 function GeneratedMeme({ meme, onClick }) {
     return (
         <div className="GeneratedMeme">

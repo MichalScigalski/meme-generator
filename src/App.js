@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import Meme from './components/Meme';
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
+import {ReactComponent as Loader} from './loader.svg';
+
 
 const objectToParam = (obj) => {
   const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -17,6 +19,7 @@ function App() {
   const [memeTextFirst, setMemeTextFirst] = useState('');
   const [memeTextSecond, setMemeTextSecond] = useState('');
   const [createdMeme, setCreatedMeme] = useState(null);
+  const [isLoader, setIsLoader] = useState(false);
 
   useEffect(() => {
     console.log(currentTemplate)
@@ -50,10 +53,13 @@ function App() {
       });
   }
 
-  fetchTemplatesMeme();
+  // useEffect(() => {
+  //   fetchTemplatesMeme();
+  // }, [])
 
   return (
     <div className="App">
+      <Loader />
       <h1>MemeGenerator</h1>
       {currentTemplate ?
         createdMeme ?
