@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './CreatingMeme.css'
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function CreatingMeme({ template, onClick, setCreatedMeme }) {
     let navigate = useNavigate();
@@ -25,11 +25,11 @@ function CreatingMeme({ template, onClick, setCreatedMeme }) {
         };
         axios
             .post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
-            .then((res) => {
+            .then(res => {
                 setCreatedMeme(res.data);
                 navigate("/meme");
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             });
     };
@@ -38,8 +38,8 @@ function CreatingMeme({ template, onClick, setCreatedMeme }) {
             <button onClick={onClick}>Back to templates</button>
             <form onSubmit={createMeme}>
                 <img src={template.url} title={template.name} alt={template.name + '-img'} />
-                <input onChange={(e)=>setMemeTextFirst(e.target.value)} type="text" placeholder="first text" />
-                <input onChange={(e)=>setMemeTextSecond(e.target.value)} type="text" placeholder="second text" />
+                <input onChange={(e) => setMemeTextFirst(e.target.value)} type="text" placeholder="first text" />
+                <input onChange={(e) => setMemeTextSecond(e.target.value)} type="text" placeholder="second text" />
                 <button type="submit">Create meme</button>
             </form>
         </div>

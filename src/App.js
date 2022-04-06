@@ -23,11 +23,11 @@ function App() {
   const fetchTemplatesMeme = () => {
     axios
       .get("https://api.imgflip.com/get_memes")
-      .then((res) => {
+      .then(res => {
         setMemeTemplates(res.data.data.memes);
         setLoading(true);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
@@ -68,11 +68,10 @@ function App() {
         <Route
           path="/meme"
           element={
-            loading ?
               <GeneratedMeme
                 meme={createdMeme}
                 onClick={() => navigate(-2)}
-              /> : <Loader />
+              />
           }
         />
       </Routes>
