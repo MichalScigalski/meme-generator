@@ -12,28 +12,13 @@ import {
   Link
 } from "react-router-dom";
 
-
-const objectToParam = (obj) => {
-  const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
-  return "?" + params.join("&");
-};
-
 function App() {
-  const [memeTemplates, setMemeTemplates] = useState([]);
-  const [currentTemplate, setCurrentTemplate] = useState(null);
-  const [memeTextFirst, setMemeTextFirst] = useState("");
-  const [memeTextSecond, setMemeTextSecond] = useState("");
-  const [createdMeme, setCreatedMeme] = useState(null);
-  const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(currentTemplate);
-  }, [currentTemplate]);
-
-  useEffect(() => {
-    console.log(memeTemplates);
-  }, [])
+  const [memeTemplates, setMemeTemplates] = useState([]);
+  const [currentTemplate, setCurrentTemplate] = useState(null);
+  const [createdMeme, setCreatedMeme] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchTemplatesMeme = () => {
     axios
@@ -47,33 +32,13 @@ function App() {
       });
   };
 
-  const createMeme = (e) => {
-    e.preventDefault();
-    const params = {
-      template_id: currentTemplate.id,
-      username: process.env.REACT_APP_IMGFLIP_USERNAME,
-      password: process.env.REACT_APP_IMGFLIP_PASSWORD,
-      text0: memeTextFirst,
-      text1: memeTextSecond,
-    };
-    axios
-      .post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
-      .then((res) => {
-        setCreatedMeme(res.data);
-        navigate("/meme");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
     fetchTemplatesMeme();
   }, []);
 
   return (
     <div className="App">
-      <Link style={{fontSize: '42px', textDecoration: 'none', color: 'black'}} to="/">MemeGenerator</Link>
+      <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/">MemeGenerator</Link>
       <Routes>
         <Route
           path="/"
@@ -91,27 +56,22 @@ function App() {
           }
         />
         <Route
-          path="create"
+          path="/create"
           element={
             <CreatingMeme
-              handleTextFirst={(e) => setMemeTextFirst(e.target.value)}
-              handleTextSecond={(e) => setMemeTextSecond(e.target.value)}
-              onSubmit={createMeme}
-              onClick={() => {setCurrentTemplate(null); navigate('/')}}
+              onClick={() => navigate(-1)}
               template={currentTemplate}
+              setCreatedMeme={setCreatedMeme}
             />
           }
         />
         <Route
-          path="meme"
+          path="/meme"
           element={
             loading ?
               <GeneratedMeme
                 meme={createdMeme}
-                onClick={() => {
-                  setCreatedMeme(null);
-                  navigate('/create');
-                }}
+                onClick={() => navigate(-2)}
               /> : <Loader />
           }
         />
