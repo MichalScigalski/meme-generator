@@ -1,12 +1,15 @@
 import React from 'react'
 import './Meme.css';
+import {
+    Link
+} from "react-router-dom";
 
-function Meme({ id, name, url, onClick }) {
+function Meme({ template, onClick }) {
     return (
-        <div title={name} onClick={onClick} id={id} className="meme">
-            <h1>{name}</h1>
-            <img src={url} alt={name + '-image'} />
-        </div>
+        <Link to="/create" title={template.name} onClick={onClick} className="meme">
+            <h1>{template.name}</h1>
+            <img src={template.url} alt={template.name + '-image'} />
+        </Link>
     )
 }
 

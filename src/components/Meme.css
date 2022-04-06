@@ -15,5 +15,9 @@
 
 .meme img {
     height: 300px;
+}
 
+Link{
+    color: black;
+    text-decoration: none;
 }

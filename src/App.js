@@ -1,7 +1,6 @@
 import axios from "axios";
 import "./App.css";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Meme from "./components/Meme";
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
@@ -10,7 +9,9 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useNavigate
 } from "react-router-dom";
+
 
 const objectToParam = (obj) => {
   const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -24,14 +25,15 @@ function App() {
   const [memeTextSecond, setMemeTextSecond] = useState("");
   const [createdMeme, setCreatedMeme] = useState(null);
   const [isLoader, setIsLoader] = useState(false);
+  let navigate = useNavigate();
 
   useEffect(() => {
     console.log(currentTemplate);
   }, [currentTemplate]);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(memeTemplates);
-  },[])
+  }, [])
 
   const fetchTemplatesMeme = () => {
     axios
@@ -58,6 +60,9 @@ function App() {
       .then((res) => {
         setCreatedMeme(res.data);
       })
+      .then(() => {
+        navigate("/meme");
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -69,83 +74,48 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="memes">
-                {memeTemplates.map((el) => (
-                  <Meme
-                    onClick={() => setCurrentTemplate(el)}
-                    key={el.id}
-                    name={el.name}
-                    url={el.url}
-                  />
-                ))}
-              </div>
-            }
-          />
-          <Route
-            path="create"
-            element={
-              <CreatingMeme
-                handleTextFirst={(e) => setMemeTextFirst(e.target.value)}
-                handleTextSecond={(e) => setMemeTextSecond(e.target.value)}
-                onSubmit={createMeme}
-                onClick={() => setCurrentTemplate(null)}
-                url={currentTemplate.url}
-                name={currentTemplate.name}
-              />
-            }
-          />
-          <Route
-            path="genereted"
-            element={
-              <GeneratedMeme
-                meme={createdMeme}
-                onClick={() => {
-                  setCreatedMeme(null);
-                  setCurrentTemplate(null);
-                }}
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter> 
       <h1>MemeGenerator</h1>
-      {/* {currentTemplate ? (
-        createdMeme ? (
-          <GeneratedMeme
-            meme={createdMeme}
-            onClick={() => {
-              setCreatedMeme(null);
-              setCurrentTemplate(null);
-            }}
-          />
-        ) : (
-          <CreatingMeme
-            handleTextFirst={(e) => setMemeTextFirst(e.target.value)}
-            handleTextSecond={(e) => setMemeTextSecond(e.target.value)}
-            onSubmit={createMeme}
-            onClick={() => setCurrentTemplate(null)}
-            url={currentTemplate.url}
-            name={currentTemplate.name}
-          />
-        )
-      ) : (
-        <div className="memes">
-          {memeTemplates.map((el) => (
-            <Meme
-              onClick={() => setCurrentTemplate(el)}
-              key={el.id}
-              name={el.name}
-              url={el.url}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="memes">
+              {memeTemplates.map(el => (
+                <Meme
+                  onClick={() => setCurrentTemplate(el)}
+                  template={el}
+                  key={el.id}
+                />
+              ))}
+            </div>
+          }
+        />
+        <Route
+          path="create"
+          element={
+            <CreatingMeme
+              handleTextFirst={(e) => setMemeTextFirst(e.target.value)}
+              handleTextSecond={(e) => setMemeTextSecond(e.target.value)}
+              onSubmit={createMeme}
+              onClick={() => setCurrentTemplate(null)}
+              template={currentTemplate}
             />
-          ))}
-        </div>
-      )} */}
-    </div> 
+          }
+        />
+        <Route
+          path="meme"
+          element={
+            <GeneratedMeme
+              meme={createdMeme}
+              onClick={() => {
+                setCreatedMeme(null);
+                setCurrentTemplate(null);
+              }}
+            />
+          }
+        />
+      </Routes>
+    </div>
   );
 }
 
