@@ -6,9 +6,9 @@ function GeneratedMeme({ meme, onClick }) {
         <div className="GeneratedMeme">
             <button onClick={onClick}>Back</button>
             <div>
-                <img src={meme.data.url} alt="generated meme" />
+                <img src={meme.data.url} alt="generated meme"/>
             </div>
-            <a href={meme.data.url} target="_blank">Download</a>
+            <a href={meme.data.url} target="_blank" download>Download</a>
         </div>
     )
 }
