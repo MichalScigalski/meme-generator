@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/">MemeGenerator</Link>
+      <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/" onClick={()=>setSearch('')}>MemeGenerator</Link>
       <Routes>
         <Route
           path="/"

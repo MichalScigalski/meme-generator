@@ -5,9 +5,9 @@
 
 
 ### to do
-- [ ] Search
-- [ ] ReactRouter
-- [ ] Loader
+- [x] Search
+- [x] ReactRouter
+- [x] Loader
 - [ ] Styling
 - [ ] Download Meme
 - [ ] Alerts
