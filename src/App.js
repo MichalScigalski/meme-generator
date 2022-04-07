@@ -25,13 +25,14 @@ function App() {
     axios
       .get("https://api.imgflip.com/get_memes")
       .then(res => {
-        let data = res.data.data.memes.name
+        let data = res.data.data.memes;
+        console.log(data[0].name);
         setMemeTemplates(data);
         setLoading(true);
       })
       .catch(err => {
         console.log(err);
-      }); 
+      });
   };
 
   useEffect(() => {
@@ -46,18 +47,18 @@ function App() {
           path="/"
           element={
             loading ?
-            <div>
-              <input type="text" placeholder="type to search" value={search} onChange={(e)=>setSearch(e.target.value)} />
-              <div className="memes">
-                {memeTemplates.map(el => (
-                  <Meme
-                    onClick={() => setCurrentTemplate(el)}
-                    template={el}
-                    key={el.id}
-                  />
-                ))}
-              </div> 
-            </div>: <Loader />
+              <div>
+                <input type="text" placeholder="type to search" value={search} onChange={(e) => setSearch(e.target.value)} />
+                <div className="memes">
+                  {memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase())).map(el => (
+                    <Meme
+                      onClick={() => setCurrentTemplate(el)}
+                      template={el}
+                      key={el.id}
+                    />
+                  ))}
+                </div>
+              </div> : <Loader />
           }
         />
         <Route
@@ -73,10 +74,10 @@ function App() {
         <Route
           path="/meme"
           element={
-              <GeneratedMeme
-                meme={createdMeme}
-                onClick={() => navigate(-2)}
-              />
+            <GeneratedMeme
+              meme={createdMeme}
+              onClick={() => navigate(-2)}
+            />
           }
         />
       </Routes>
