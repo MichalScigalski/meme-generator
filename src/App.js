@@ -18,6 +18,7 @@ function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
   const [createdMeme, setCreatedMeme] = useState(null);
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
 
   const fetchTemplatesMeme = () => {
@@ -29,7 +30,7 @@ function App() {
       })
       .catch(err => {
         console.log(err);
-      });
+      }); 
   };
 
   useEffect(() => {
@@ -44,6 +45,8 @@ function App() {
           path="/"
           element={
             loading ?
+            <div>
+              <input type="text" placeholder="type to search" value={search} onChange={(e)=>setSearch(e.target.value)} />
               <div className="memes">
                 {memeTemplates.map(el => (
                   <Meme
@@ -52,7 +55,8 @@ function App() {
                     key={el.id}
                   />
                 ))}
-              </div> : <Loader />
+              </div> 
+            </div>: <Loader />
           }
         />
         <Route

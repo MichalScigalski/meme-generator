@@ -5,6 +5,7 @@
 
 
 ### to do
+- [ ] Search
 - [ ] ReactRouter
 - [ ] Loader
 - [ ] Styling
