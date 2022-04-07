@@ -25,7 +25,8 @@ function App() {
     axios
       .get("https://api.imgflip.com/get_memes")
       .then(res => {
-        setMemeTemplates(res.data.data.memes);
+        let data = res.data.data.memes.name
+        setMemeTemplates(data);
         setLoading(true);
       })
       .catch(err => {
