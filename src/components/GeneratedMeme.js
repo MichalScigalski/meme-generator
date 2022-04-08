@@ -8,7 +8,7 @@ function GeneratedMeme({ meme, onClick }) {
             <div>
                 <img src={meme.data.url} alt="generated meme" />
             </div>
-            <a href={meme.data.url} target="_blank" download>Download</a>
+            <a href={meme.data.url} target="_blank" download rel="noreferrer">Download</a>
         </div>
     )
 }

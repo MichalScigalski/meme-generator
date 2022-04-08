@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom'
 function CreatingMeme({ template, onClick, setCreatedMeme }) {
     let navigate = useNavigate();
 
-    const [memeTextFirst, setMemeTextFirst] = useState("");
-    const [memeTextSecond, setMemeTextSecond] = useState("");
+    const [memeTextFirst, setMemeTextFirst] = useState('');
+    const [memeTextSecond, setMemeTextSecond] = useState('');
 
     const objectToParam = (obj) => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -27,7 +27,8 @@ function CreatingMeme({ template, onClick, setCreatedMeme }) {
             .post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
             .then(res => {
                 setCreatedMeme(res.data);
-                navigate("/meme");
+                const idMeme = res.data.data.page_url.split('/');
+                navigate("/meme/"+idMeme[idMeme.length-1]);
             })
             .catch(err => {
                 console.log(err);
