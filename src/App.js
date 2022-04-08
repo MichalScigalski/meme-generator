@@ -5,6 +5,7 @@ import Meme from "./components/Meme";
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
 import Navigation from "./components/Navigation";
+import SearchIcon from './img/search.png';
 import { ReactComponent as Loader } from "./img/loader.svg";
 import {
   Routes,
@@ -42,15 +43,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation />
       {/* <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/" onClick={() => setSearch('')}>MemeGenerator</Link> */}
       <Routes>
         <Route
           path="/"
           element={
             loading ?
-              <div>
-                <input type="text" placeholder="type to search" value={search} onChange={(e) => setSearch(e.target.value)} />
+              <main>
+                <div className="SearchBar">
+                  <img src={SearchIcon} alt="searchIcon" />
+                  <input className="" type="text" placeholder="Type what template you looking for..." value={search} onChange={(e) => setSearch(e.target.value)} />
+                </div>
                 <div className="memes">
                   {memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase())).map(el => (
                     <Meme
@@ -60,7 +64,7 @@ function App() {
                     />
                   ))}
                 </div>
-              </div> : <Loader />
+              </main> : <Loader />
           }
         />
         <Route

@@ -10,7 +10,6 @@ function Navigation() {
                 <img src={Logo} alt="memeIcon" />
                 <span>Meme Generator</span>
             </Link>
-            
         </header>
     )
 }
