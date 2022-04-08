@@ -10,11 +10,11 @@ function GeneratedMeme({ meme, onClick }) {
             url: meme.data.url,
             method: 'GET',
             responseType: 'blob',
-        }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
+        }).then(res => {
+            const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `${id}.jpg`);
+            link.setAttribute('download', `meme-${id}.jpg`);
             document.body.appendChild(link);
             link.click();
         });
@@ -27,7 +27,7 @@ function GeneratedMeme({ meme, onClick }) {
             <div>
                 <img src={meme.data.url} alt="generated meme" />
             </div>
-            <a onClick={downloadMeme}>Download</a>
+            <button onClick={downloadMeme}>Download</button>
         </div>
     )
 }
