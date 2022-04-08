@@ -6,10 +6,16 @@ import {
 
 function Meme({ template, onClick }) {
     return (
-        <Link to="/create" title={template.name} onClick={onClick} className="meme" style={{ textDecoration: 'none', color: 'black' }}>
-            <h1>{template.name}</h1>
-            <img src={template.url} alt={template.name + '-image'} />
-        </Link>
+        <div className="meme">
+            <Link to="/create" title={template.name} onClick={onClick}  style={{ textDecoration: 'none', color: 'black' }}>
+                <div className='meme__imgBox'>
+                    <img src={template.url} alt={template.name + '-image'} />
+                </div>
+                <div className="meme__textBox">
+                    <span>{template.name}</span>
+                </div>
+            </Link>
+        </div>
     )
 }
 

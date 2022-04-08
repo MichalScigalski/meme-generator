@@ -1,12 +1,11 @@
 import axios from "axios";
 import "./App.scss";
 import React, { useState, useEffect } from "react";
-import Meme from "./components/Meme";
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
+import TemplateList from "./components/TemplateList";
 import Navigation from "./components/Navigation";
-import SearchIcon from './img/search.png';
-import CloseIcon from './img/close.png';
+
 import { ReactComponent as Loader } from "./img/loader.svg";
 import {
   Routes,
@@ -21,7 +20,6 @@ function App() {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
   const [createdMeme, setCreatedMeme] = useState(null);
-  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
 
   const fetchTemplatesMeme = () => {
@@ -45,28 +43,13 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      {/* <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/" onClick={() => setSearch('')}>MemeGenerator</Link> */}
       <Routes>
         <Route
           path="/"
           element={
             loading ?
-              <main>
-                <div className="SearchBar">
-                  <img src={SearchIcon} alt="searchIcon" />
-                  <input className="" type="text" placeholder="Type what template you looking for..." value={search} onChange={(e) => setSearch(e.target.value)} />
-                  <img src={CloseIcon} onClick={()=>setSearch('')} alt="searchIcon" />
-                </div>
-                <div className="memes">
-                  {memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase())).map(el => (
-                    <Meme
-                      onClick={() => setCurrentTemplate(el)}
-                      template={el}
-                      key={el.id}
-                    />
-                  ))}
-                </div>
-              </main> : <Loader />
+              <TemplateList setCurrentTemplate={setCurrentTemplate} memeTemplates={memeTemplates} />
+              : <Loader />
           }
         />
         <Route

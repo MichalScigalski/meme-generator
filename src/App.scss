@@ -3,43 +3,4 @@
 .App {
   display: flex;
   flex-direction: column;
-  main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .SearchBar {
-    background-color: white;
-    margin: 1rem;
-    width: 400px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    padding: 4px;
-
-    img:first-child {
-      height: 20px;
-      margin-left: 1rem;
-      opacity: 0.3;
-    }
-    img:last-child{
-      height: 15px;
-      opacity: 0.3;
-      padding: 1rem;
-      cursor: pointer;
-    }
-
-    input {
-      font-family: $roboto;
-      &::placeholder {
-        opacity: 0.6;
-      }
-      outline: none;
-      border: none;
-      padding: 1rem;
-      font-size: 16px;
-      width: 100%;
-    }
-  }
 }
