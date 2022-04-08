@@ -8,11 +8,15 @@
     &__searchBar {
         background-color: white;
         margin: 1rem;
-        width: 400px;
         border-radius: 8px;
         display: flex;
         align-items: center;
         padding: 4px;
+        width: 400px;
+
+        @include mobile{
+            width: fit-content;
+        }
 
         img:first-child {
             height: 20px;
@@ -22,7 +26,7 @@
         img:last-child {
             height: 15px;
             opacity: 0.3;
-            padding: 1rem;
+            padding-right: 1rem;
             cursor: pointer;
         }
 
@@ -38,8 +42,14 @@
             width: 100%;
         }
     }
-    &__memes{
+    &__memes {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        @include large {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
 }

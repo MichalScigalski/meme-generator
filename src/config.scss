@@ -10,3 +10,30 @@ $primary: #193498;
 // fonts
 $roboto: 'Roboto', sans-serif;
 $koulen: 'Koulen', cursive;
+
+
+
+// rwd media
+@mixin large {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 588px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media screen and (max-width: 280px) {
+        @content;
+    }
+}
