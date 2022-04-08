@@ -1,0 +1,23 @@
+@import '../config.scss';
+
+.Navigation {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.098);
+    &__Logo {
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+        color: black;
+        text-decoration: none;
+        img {
+            height: 50px;
+            margin: 1rem;
+        }
+        span {
+            color: $primary;
+        }
+        
+    }
+}

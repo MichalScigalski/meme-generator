@@ -1,5 +1,5 @@
 import React from 'react'
-import './GeneratedMeme.css'
+import './GeneratedMeme.scss'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 

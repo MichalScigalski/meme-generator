@@ -1,10 +1,11 @@
 import axios from "axios";
-import "./App.css";
+import "./App.scss";
 import React, { useState, useEffect } from "react";
 import Meme from "./components/Meme";
 import CreatingMeme from "./components/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme";
-import { ReactComponent as Loader } from "./loader.svg";
+import Navigation from "./components/Navigation";
+import { ReactComponent as Loader } from "./img/loader.svg";
 import {
   Routes,
   Route,
@@ -41,7 +42,8 @@ function App() {
 
   return (
     <div className="App">
-      <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/" onClick={() => setSearch('')}>MemeGenerator</Link>
+      <Navigation/>
+      {/* <Link style={{ fontSize: '42px', textDecoration: 'none', color: 'black' }} to="/" onClick={() => setSearch('')}>MemeGenerator</Link> */}
       <Routes>
         <Route
           path="/"

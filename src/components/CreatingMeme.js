@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import './CreatingMeme.css'
+import './CreatingMeme.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
 function CreatingMeme({ template, onClick, setCreatedMeme }) {
     let navigate = useNavigate();
-
+    console.log(template)
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');
 

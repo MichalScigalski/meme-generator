@@ -9,5 +9,5 @@
 - [x] ReactRouter
 - [x] Loader
 - [ ] Styling
-- [ ] Download Meme
+- [x] Download Meme
 - [ ] Alerts

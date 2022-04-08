@@ -1,5 +1,5 @@
 import React from 'react'
-import './Meme.css';
+import './Meme.scss';
 import {
     Link
 } from "react-router-dom";
