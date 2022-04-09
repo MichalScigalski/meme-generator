@@ -1,10 +1,10 @@
 import axios from "axios";
 import "./App.scss";
 import React, { useState, useEffect } from "react";
-import CreatingMeme from "./components/CreatingMeme";
-import GeneratedMeme from "./components/GeneratedMeme";
-import TemplateList from "./components/TemplateList";
-import Navigation from "./components/Navigation";
+import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
+import GeneratedMeme from "./components/GeneratedMeme/GeneratedMeme";
+import TemplateList from "./components/TemplateList/TemplateList";
+import Navigation from "./components/Navigation/Navigation";
 
 import { ReactComponent as Loader } from "./img/loader.svg";
 import {

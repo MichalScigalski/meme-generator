@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchIcon from '../img/search.png';
-import CloseIcon from '../img/close.png';
+import SearchIcon from '../../img/search.png';
+import CloseIcon from '../../img/close.png';
 import './SearchBox.scss';
 
 function SearchBox({ className, search, setSearch }) {

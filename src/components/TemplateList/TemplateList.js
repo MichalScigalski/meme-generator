@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Meme from "./Meme";
-import SearchBox from './SearchBox';
+import Meme from "../Meme/Meme";
+import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';
 
 function TemplateList({ setCurrentTemplate, memeTemplates }) {

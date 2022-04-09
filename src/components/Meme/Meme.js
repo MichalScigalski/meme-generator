@@ -1,8 +1,6 @@
 import React from 'react'
 import './Meme.scss';
-import {
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Meme({ template, onClick }) {
     return (
