@@ -10,4 +10,5 @@
 - [x] Loader
 - [ ] Styling
 - [x] Download Meme
-- [ ] Alerts
+- [ ] Display example text on template
+- [ ] States avaliable after refresh
