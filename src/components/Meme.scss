@@ -2,6 +2,12 @@
 
 .meme {
     max-width: 360px;
+
+    transition: 0.2s all ease;
+    &:hover {
+        transform: scale(1.02);
+    }
+
     &__imgBox {
         border-radius: 1rem 1rem 0 0;
         background-color: white;

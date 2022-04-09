@@ -3,7 +3,7 @@ import './GeneratedMeme.scss'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function GeneratedMeme({ meme, onClick }) {
+function GeneratedMeme({ meme, backHandler }) {
     const { id } = useParams();
     const downloadMeme = () => {
         axios({
@@ -23,7 +23,7 @@ function GeneratedMeme({ meme, onClick }) {
     return (
         <div className="GeneratedMeme">
             {console.log(meme.data)}
-            <button onClick={onClick}>Back</button>
+            <button onClick={backHandler}>Back</button>
             <div>
                 <img src={meme.data.url} alt="generated meme" />
             </div>

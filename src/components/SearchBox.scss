@@ -1,0 +1,34 @@
+@import '../config.scss';
+
+.SearchBox {
+    background-color: white;
+        margin: 1rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        width: 400px;
+
+    img:first-child {
+        height: 20px;
+        margin-left: 1rem;
+        opacity: 0.3;
+    }
+    img:last-child {
+        height: 15px;
+        opacity: 0.3;
+        padding-right: 1rem;
+        cursor: pointer;
+    }
+    input {
+        font-family: $roboto;
+        &::placeholder {
+            opacity: 0.6;
+        }
+        outline: none;
+        border: none;
+        padding: 1rem;
+        font-size: 16px;
+        width: 100%;
+    }
+}

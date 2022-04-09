@@ -3,18 +3,17 @@ import './CreatingMeme.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
-function CreatingMeme({ template, onClick, setCreatedMeme }) {
+function CreatingMeme({ template, backHandler, setCreatedMeme }) {
     let navigate = useNavigate();
-    console.log(template)
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');
 
-    const objectToParam = (obj) => {
+    const objectToParam = obj => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
         return "?" + params.join("&");
     };
 
-    const createMeme = (e) => {
+    const createMeme = e => {
         e.preventDefault();
         const params = {
             template_id: template.id,
@@ -36,11 +35,11 @@ function CreatingMeme({ template, onClick, setCreatedMeme }) {
     };
     return (
         <div className="creatingMeme">
-            <button onClick={onClick}>Back to templates</button>
+            <button onClick={backHandler}>Back to templates</button>
             <form onSubmit={createMeme}>
                 <img src={template.url} title={template.name} alt={template.name + '-img'} />
-                <input onChange={(e) => setMemeTextFirst(e.target.value)} type="text" placeholder="first text" />
-                <input onChange={(e) => setMemeTextSecond(e.target.value)} type="text" placeholder="second text" />
+                <input onChange={e => setMemeTextFirst(e.target.value)} type="text" placeholder="first text" />
+                <input onChange={e => setMemeTextSecond(e.target.value)} type="text" placeholder="second text" />
                 <button type="submit">Create meme</button>
             </form>
         </div>
