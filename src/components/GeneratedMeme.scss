@@ -1,14 +1,32 @@
-.GeneratedMeme button{
-    cursor: pointer;
-    border: none;
-    font-size: 23px;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    background-color: green;
-    color: white;
-    margin: 1rem;
-}
+@import '../config.scss';
 
-.GeneratedMeme img{
-    border: 1px solid green;
+.GeneratedMeme {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &__image {
+        img {
+            height: 400px;
+        }
+    }
+
+    span {
+        font-size: 48px;
+        margin: 2rem;
+        font-family: $kreon;
+    }
+
+    &__buttons {
+        display: flex;
+        margin-top: 2rem;
+        button {
+            margin: 1rem;
+        }
+        button:first-child{
+            background-color: $third;
+        }
+    }
 }

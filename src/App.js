@@ -56,7 +56,6 @@ function App() {
           path="/create"
           element={
             <CreatingMeme
-              backHandler={() => navigate(-1)}
               template={currentTemplate}
               setCreatedMeme={setCreatedMeme}
             />
@@ -67,7 +66,6 @@ function App() {
           element={
             <GeneratedMeme
               meme={createdMeme}
-              backHandler={() => navigate(-2)}
             />
           }
         />

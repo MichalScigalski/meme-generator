@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './CreatingMeme.scss'
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import undoIcon from '../img/undo.png';
 import {
     Link
 } from "react-router-dom";
 
-function CreatingMeme({ template, backHandler, setCreatedMeme }) {
+function CreatingMeme({ template, setCreatedMeme }) {
     let navigate = useNavigate();
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');
@@ -39,7 +39,7 @@ function CreatingMeme({ template, backHandler, setCreatedMeme }) {
     };
     return (
         <div className="creatingMeme">
-            <a onClick={() => navigate(-1)}>
+            <a className="backButton" onClick={() => navigate(-1)}>
                 <img src={undoIcon} alt="undoIcon" />
             </a>
             <form onSubmit={createMeme}>
@@ -47,7 +47,7 @@ function CreatingMeme({ template, backHandler, setCreatedMeme }) {
                 <span>{template.name}</span>
                 <input onChange={e => setMemeTextFirst(e.target.value)} type="text" placeholder="First text" />
                 <input onChange={e => setMemeTextSecond(e.target.value)} type="text" placeholder="Second text" />
-                <button type="submit">Create meme</button>
+                <button className="button" type="submit">Create meme</button>
             </form>
         </div>
     )

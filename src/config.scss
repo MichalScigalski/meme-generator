@@ -1,20 +1,20 @@
 // imports
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kreon&display=swap");
 
 // colors
 
-$primary: #3674CC;
+$primary: #3674cc;
 $secondary: #193498;
-
+$third: #113cfc;
 
 // fonts
-$roboto: 'Roboto', sans-serif;
-$koulen: 'Koulen', cursive;
-$hind: 'Hind Siliguri', sans-serif;
-
+$roboto: "Roboto", sans-serif;
+$koulen: "Koulen", cursive;
+$hind: "Hind Siliguri", sans-serif;
+$kreon: "Kreon", serif;
 
 // rwd media
 @mixin large {
@@ -39,4 +39,29 @@ $hind: 'Hind Siliguri', sans-serif;
     @media screen and (max-width: 280px) {
         @content;
     }
+}
+
+// classes
+.backButton {
+    cursor: pointer;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    img {
+        opacity: 0.5;
+        height: 50px;
+    }
+}
+
+.button {
+    background-color: $secondary;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: $roboto;
+    cursor: pointer;
 }
