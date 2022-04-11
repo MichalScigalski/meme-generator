@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CreatingMeme.scss'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import undoIcon from '../../img/undo.png';
 
 
@@ -9,11 +9,14 @@ function CreatingMeme({ template, setCreatedMeme }) {
     let navigate = useNavigate();
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');
+    const { templateId } = useParams();
 
     const objectToParam = obj => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
         return "?" + params.join("&");
     };
+
+    // const getMemeById = (id) => memeTemplates.filter(meme => meme.id === id)[0];
 
     const createMeme = e => {
         e.preventDefault();
@@ -40,6 +43,7 @@ function CreatingMeme({ template, setCreatedMeme }) {
             <a className="backButton" onClick={() => navigate(-1)}>
                 <img src={undoIcon} alt="undoIcon" />
             </a>
+            <h1>{templateId}</h1>
             <form onSubmit={createMeme}>
                 <img src={template.url} title={template.name} alt={template.name + '-img'} />
                 <span>{template.name}</span>

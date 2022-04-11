@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Meme({ template, onClick }) {
     return (
         <div className="meme">
-            <Link to="/create" title={template.name} onClick={onClick}  style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`/create/${template.id}`} title={template.name} onClick={onClick}  style={{ textDecoration: 'none', color: 'black' }}>
                 <div className='meme__imgBox'>
                     <img src={template.url} alt={template.name + '-image'} />
                 </div>

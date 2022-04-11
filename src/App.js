@@ -2,7 +2,7 @@ import axios from "axios";
 import "./App.scss";
 import React, { useState, useEffect } from "react";
 import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
-import GeneratedMeme from "./components/GeneratedMeme/GeneratedMeme";
+import GeneratedMeme from "./components/CreatedMeme/CreatedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
 import Navigation from "./components/Navigation/Navigation";
 
@@ -10,13 +10,9 @@ import { ReactComponent as Loader } from "./img/loader.svg";
 import {
   Routes,
   Route,
-  useNavigate,
-  Link
 } from "react-router-dom";
 
 function App() {
-  let navigate = useNavigate();
-
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
   const [createdMeme, setCreatedMeme] = useState(null);
@@ -27,7 +23,6 @@ function App() {
       .get("https://api.imgflip.com/get_memes")
       .then(res => {
         let data = res.data.data.memes;
-        console.log(data[0].name);
         setMemeTemplates(data);
         setLoading(true);
       })
@@ -53,11 +48,12 @@ function App() {
           }
         />
         <Route
-          path="/create"
+          path="/create/:templateId"
           element={
             <CreatingMeme
               template={currentTemplate}
               setCreatedMeme={setCreatedMeme}
+              fetchTemplatesMeme={fetchTemplatesMeme}
             />
           }
         />
@@ -65,7 +61,8 @@ function App() {
           path="/meme/:id"
           element={
             <GeneratedMeme
-              meme={createdMeme}
+              createdMeme={createdMeme}
+              setCreatedMeme={setCreatedMeme}
             />
           }
         />

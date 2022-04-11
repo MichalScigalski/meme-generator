@@ -1,15 +1,16 @@
-import React from 'react'
-import './GeneratedMeme.scss'
+import React, { useEffect } from 'react'
+import './CreatedMeme.scss'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import undoIcon from '../../img/undo.png';
 
-function GeneratedMeme({ meme }) {
+function GeneratedMeme({ createdMeme }) {
     let navigate = useNavigate();
     const { id } = useParams();
+
     const downloadMeme = () => {
         axios({
-            url: meme.data.url,
+            url: createdMeme.data.url,
             method: 'GET',
             responseType: 'blob',
         }).then(res => {
@@ -29,7 +30,7 @@ function GeneratedMeme({ meme }) {
             </a>
             <span>This is your new meme</span>
             <div className="GeneratedMeme__image">
-                <img src={meme.data.url} alt="generated meme" />
+                <img src={createdMeme.data.url} alt="generated meme" />
             </div>
             <div className="GeneratedMeme__buttons">
                 <button className="button" onClick={downloadMeme}>Download</button>

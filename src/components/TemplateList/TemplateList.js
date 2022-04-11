@@ -3,6 +3,7 @@ import Meme from "../Meme/Meme";
 import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';
 
+
 function TemplateList({ setCurrentTemplate, memeTemplates }) {
     const [search, setSearch] = useState('');
     const filteredTemplates = memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase()));
