@@ -6,7 +6,7 @@ import GeneratedMeme from "./components/CreatedMeme/CreatedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
 import Navigation from "./components/Navigation/Navigation";
 
-import { ReactComponent as Loader } from "./img/loader.svg";
+import { ReactComponent as Loader } from "./assets/loader.svg";
 import {
   Routes,
   Route,
