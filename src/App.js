@@ -12,7 +12,7 @@ import {
   Route,
 } from "react-router-dom";
 
-function App() {
+const App = () => {
   const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
   const [createdMeme, setCreatedMeme] = useState(null);

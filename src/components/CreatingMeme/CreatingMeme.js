@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom'
 import undoIcon from '../../assets/icons/undo.png';
 
-function CreatingMeme({ template, setCreatedMeme }) {
+const CreatingMeme = ({ template, setCreatedMeme }) => {
     let navigate = useNavigate();
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import undoIcon from '../../assets/icons/undo.png';
 
-function GeneratedMeme({ createdMeme }) {
+const GeneratedMeme = ({ createdMeme }) => {
     let navigate = useNavigate();
     const { id } = useParams();
 

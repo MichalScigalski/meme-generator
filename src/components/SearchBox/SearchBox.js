@@ -3,7 +3,7 @@ import SearchIcon from '../../assets/icons/search.png';
 import CloseIcon from '../../assets/icons/close.png';
 import './SearchBox.scss';
 
-function SearchBox({ className, search, setSearch }) {
+const SearchBox = ({ className, search, setSearch }) => {
     return (
         <div className={`SearchBox ${className}`}>
             <img src={SearchIcon} alt="searchIcon" />

@@ -2,7 +2,7 @@ import React from 'react'
 import './Navigation.scss'
 import { Link } from 'react-router-dom';
 
-function Navigation() {
+const Navigation = () => {
     return (
         <header className='Navigation'>
             <Link className='Navigation__Logo' to={"/"}>
