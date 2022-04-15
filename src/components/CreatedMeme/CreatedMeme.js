@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './CreatedMeme.scss'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import undoIcon from '../../img/undo.png';
+import undoIcon from '../../assets/icons/undo.png';
 
 function GeneratedMeme({ createdMeme }) {
     let navigate = useNavigate();
