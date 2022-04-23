@@ -1,6 +1,5 @@
-import axios from "axios";
 import "./App.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
 import GeneratedMeme from "./components/CreatedMeme/CreatedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
@@ -12,28 +11,12 @@ import {
   Route,
 } from "react-router-dom";
 
+import { memesContext } from "./context";
+
 const App = () => {
-  const [memeTemplates, setMemeTemplates] = useState([]);
   const [currentTemplate, setCurrentTemplate] = useState(null);
   const [createdMeme, setCreatedMeme] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const fetchTemplatesMeme = () => {
-    axios
-      .get("https://api.imgflip.com/get_memes")
-      .then(res => {
-        let data = res.data.data.memes;
-        setMemeTemplates(data);
-        setLoading(true);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    fetchTemplatesMeme();
-  }, []);
+  // const [loading, setLoading] = useState(false);
 
   return (
     <div className="App">
@@ -42,9 +25,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            loading ?
-              <TemplateList setCurrentTemplate={setCurrentTemplate} memeTemplates={memeTemplates} />
-              : <Loader />
+              <TemplateList setCurrentTemplate={setCurrentTemplate} />
           }
         />
         <Route
@@ -53,7 +34,6 @@ const App = () => {
             <CreatingMeme
               template={currentTemplate}
               setCreatedMeme={setCreatedMeme}
-              fetchTemplatesMeme={fetchTemplatesMeme}
             />
           }
         />
