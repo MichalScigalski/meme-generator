@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './CreatingMeme.scss'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom'
@@ -14,7 +14,6 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
         return "?" + params.join("&");
     };
-
     // const getMemeById = (id) => memeTemplates.filter(meme => meme.id === id)[0];
 
     const createMeme = e => {
@@ -39,10 +38,10 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
     };
     return (
         <div className="creatingMeme">
-            <a className="backButton" onClick={() => navigate(-1)}>
+            <span className="backButton" onClick={() => navigate(-1)}>
                 <img src={undoIcon} alt="undoIcon" />
-            </a>
-            <h1>{templateId}</h1>
+            </span>
+            <h2>{templateId}</h2>
             <form onSubmit={createMeme}>
                 <img src={template.url} title={template.name} alt={template.name + '-img'} />
                 <span>{template.name}</span>

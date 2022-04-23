@@ -4,17 +4,19 @@ import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';
 import axios from "axios";
 
-
 const TemplateList = ({ setCurrentTemplate }) => {
     const [search, setSearch] = useState('');
     const [memeTemplates, setMemeTemplates] = useState([]);
-    
+
+    useEffect(() => {
+        fetchTemplatesMeme();
+    }, []);
+
     const fetchTemplatesMeme = () => {
         axios
         .get("https://api.imgflip.com/get_memes")
         .then(res => {
-            let data = res.data.data.memes;
-            setMemeTemplates(data);
+            setMemeTemplates(res.data.data.memes);
         })
         .catch(err => {
             console.log(err);
@@ -22,11 +24,6 @@ const TemplateList = ({ setCurrentTemplate }) => {
     };
 
     const filteredTemplates = memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase()));
-
-    
-    useEffect(() => {
-        fetchTemplatesMeme();
-    }, []);
     
     return (
         <div className="TemplateList">

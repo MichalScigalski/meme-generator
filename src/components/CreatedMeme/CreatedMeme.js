@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './CreatedMeme.scss'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -25,9 +25,9 @@ const GeneratedMeme = ({ createdMeme }) => {
 
     return (
         <div className="GeneratedMeme">
-            <a className="backButton" onClick={() => navigate(-1)}>
+            <span className="backButton" onClick={() => navigate(-1)}>
                 <img src={undoIcon} alt="undoIcon" />
-            </a>
+            </span>
             <span>This is your new meme</span>
             <div className="GeneratedMeme__image">
                 <img src={createdMeme.data.url} alt="generated meme" />

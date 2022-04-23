@@ -1,17 +1,16 @@
 import "./App.scss";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
 import GeneratedMeme from "./components/CreatedMeme/CreatedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
 import Navigation from "./components/Navigation/Navigation";
 
-import { ReactComponent as Loader } from "./assets/loader.svg";
+// import { ReactComponent as Loader } from "./assets/loader.svg";
 import {
   Routes,
   Route,
 } from "react-router-dom";
 
-import { memesContext } from "./context";
 
 const App = () => {
   const [currentTemplate, setCurrentTemplate] = useState(null);
