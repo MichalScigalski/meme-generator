@@ -7,10 +7,12 @@ import undoIcon from '../../assets/icons/undo.png';
 const GeneratedMeme = ({ createdMeme }) => {
     let navigate = useNavigate();
     const { id } = useParams();
+    
+    const memeUrl = createdMeme ? createdMeme.data.url : `https://i.imgflip.com/${id}.jpg`;
 
     const downloadMeme = () => {
         axios({
-            url: createdMeme.data.url,
+            url: memeUrl,
             method: 'GET',
             responseType: 'blob',
         }).then(res => {
@@ -30,7 +32,7 @@ const GeneratedMeme = ({ createdMeme }) => {
             </span>
             <span>This is your new meme</span>
             <div className="GeneratedMeme__image">
-                <img src={createdMeme.data.url} alt="generated meme" />
+                <img src={memeUrl} alt="generated meme" />
             </div>
             <div className="GeneratedMeme__buttons">
                 <button className="button" onClick={downloadMeme}>Download</button>
