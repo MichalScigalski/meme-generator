@@ -28,7 +28,7 @@ const App = () => {
           }
         />
         <Route
-          path="/create/:id"
+          path="/create"
           element={
             <CreatingMeme
               template={currentTemplate}

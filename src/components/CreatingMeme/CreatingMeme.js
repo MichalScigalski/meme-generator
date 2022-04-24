@@ -9,7 +9,6 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
 
     const [memeTextFirst, setMemeTextFirst] = useState('');
     const [memeTextSecond, setMemeTextSecond] = useState('');
-    const { id } = useParams();
 
     const objectToParam = obj => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
@@ -48,7 +47,6 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
                 <span className="backButton" onClick={() => navigate(-1)}>
                     <img src={undoIcon} alt="undoIcon" />
                 </span>
-                <h2>{id}</h2>
                 <form onSubmit={createMeme}>
                     <img src={template.url} title={template.name} alt={template.name + '-img'} />
                     <span>{template.name}</span>
