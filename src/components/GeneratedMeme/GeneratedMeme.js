@@ -1,5 +1,5 @@
 import React from 'react'
-import './CreatedMeme.scss'
+import './GeneratedMeme.scss'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import undoIcon from '../../assets/icons/undo.png';
