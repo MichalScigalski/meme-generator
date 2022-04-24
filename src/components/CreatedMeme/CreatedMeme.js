@@ -30,7 +30,7 @@ const GeneratedMeme = ({ createdMeme }) => {
             <span className="backButton" onClick={() => navigate(-1)}>
                 <img src={undoIcon} alt="undoIcon" />
             </span>
-            <span>This is your new meme</span>
+            <h2>This is your new meme</h2>
             <div className="GeneratedMeme__image">
                 <img src={memeUrl} alt="generated meme" />
             </div>
