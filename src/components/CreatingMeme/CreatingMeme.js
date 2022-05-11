@@ -34,8 +34,8 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
             .post(`https://api.imgflip.com/caption_image${objectToParam(params)}`)
             .then(res => {
                 setCreatedMeme(res.data);
-                const idMeme = res.data.data.page_url.split('/');
-                navigate("/meme/" + idMeme[idMeme.length - 1]);
+                const idMeme = res.data.data.url.split('/');
+                navigate("/meme/" + idMeme[idMeme.length - 1].split('.')[0]);
             })
             .catch(err => {
                 console.log(err);
