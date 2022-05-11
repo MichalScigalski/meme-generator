@@ -1,10 +1,12 @@
 # meme generator alpha
 
-## Api
-<code>https://imgflip.com/api</code>
+Web app made for creating memes from templates.
 
 ## Demo
 http://meme-generator-ten-sigma.vercel.app/
+
+## Api
+<code>https://imgflip.com/api</code>
 
 ## Gallery
 <img width="600" alt="1" src="https://user-images.githubusercontent.com/38386731/165708197-20f90503-547b-4bb2-9211-d534a5798a30.png">
