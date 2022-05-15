@@ -1,4 +1,4 @@
-# Meme generator
+# Vercel | Meme generator
 
 Web app made for creating memes from templates.
 
