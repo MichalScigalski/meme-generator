@@ -3,7 +3,7 @@
 Web app made for creating memes from templates.
 
 ## Demo
-https://meme-generator-quotbobvd-michalscigalski.vercel.app/
+https://meme-generator-ten-sigma.vercel.app/
 
 ## Api
 <code>https://imgflip.com/api</code>
