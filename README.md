@@ -1,6 +1,6 @@
 # Meme generator
 
-Web app made for creating memes from templates.
+Web app made for creating memes using public api.
 
 ## Demo
 https://meme-generator-ten-sigma.vercel.app/
