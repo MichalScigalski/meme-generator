@@ -1,4 +1,4 @@
-# meme generator alpha
+# Meme generator
 
 Web app made for creating memes from templates.
 

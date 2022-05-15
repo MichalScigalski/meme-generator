@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './CreatingMeme.scss'
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import undoIcon from '../../assets/icons/undo.png';
 
 const CreatingMeme = ({ template, setCreatedMeme }) => {
@@ -14,7 +14,6 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
         return "?" + params.join("&");
     };
-    // const getMemeById = (id) => memeTemplates.filter(meme => meme.id === id)[0];
 
     useEffect(()=>{
         if(template===null)
