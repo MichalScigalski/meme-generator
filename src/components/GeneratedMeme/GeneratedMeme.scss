@@ -17,6 +17,11 @@
         font-size: 48px;
         margin: 2rem;
         font-family: $kreon;
+
+        @include mobile {
+            font-size: 32px;
+            text-align: center;
+        }
     }
 
     &__buttons {
@@ -24,6 +29,10 @@
         margin-top: 2rem;
         button {
             margin: 1rem;
+            @include mobile {
+                padding: 1rem;
+                font-size: 70%;
+            }
         }
         button:first-child{
             background-color: $third;

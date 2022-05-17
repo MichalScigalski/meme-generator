@@ -12,8 +12,11 @@
         padding: 2rem 7rem;
         margin: 3rem;
         border-radius: 1rem;
+        @include mobile {
+            padding: 0.5rem 2rem;
+        }
         img {
-            height: 400px;
+            max-width: 300px;
             margin-bottom: 2rem;
         }
         span {
