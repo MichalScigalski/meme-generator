@@ -47,7 +47,9 @@ const CreatingMeme = ({ template, setCreatedMeme }) => {
                     <img src={undoIcon} alt="undoIcon" />
                 </span>
                 <form onSubmit={createMeme}>
-                    <img src={template.url} title={template.name} alt={template.name + '-img'} />
+                    <div>
+                        <img src={template.url} title={template.name} alt={template.name + '-img'} />
+                    </div>
                     <span>{template.name}</span>
                     <input onChange={e => setMemeTextFirst(e.target.value)} type="text" placeholder="First text" />
                     <input onChange={e => setMemeTextSecond(e.target.value)} type="text" placeholder="Second text" />

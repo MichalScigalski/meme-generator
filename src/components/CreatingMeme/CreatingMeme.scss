@@ -4,7 +4,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    
+
     form {
         display: flex;
         flex-direction: column;
@@ -15,9 +15,16 @@
         @include mobile {
             padding: 0.5rem 2rem;
         }
-        img {
-            max-width: 300px;
-            margin-bottom: 2rem;
+        div {
+            width: 300px;
+            background-color: white;
+            margin: 2rem 0;
+            img {
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
+                margin-bottom: 2rem;
+            }
         }
         span {
             font-weight: 600;

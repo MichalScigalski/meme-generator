@@ -8,8 +8,10 @@
     align-items: center;
 
     &__image {
+        width: 400px;
+        background-color: white;
         img {
-            height: 400px;
+            width: 100%;
         }
     }
 
@@ -19,7 +21,7 @@
         font-family: $kreon;
 
         @include mobile {
-            font-size: 32px;
+            font-size: 40px;
             text-align: center;
         }
     }
@@ -31,7 +33,6 @@
             margin: 1rem;
             @include mobile {
                 padding: 1rem;
-                font-size: 70%;
             }
         }
         button:first-child{
