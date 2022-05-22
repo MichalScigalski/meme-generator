@@ -10,7 +10,7 @@ const Navigation = () => {
                 <span>MemeGenerator</span>
                 <div>
                     <FaGithub fontSize={22}/>
-                    <a href="http://github.com/MichalScigalski">@MichalScigalski</a>
+                    <a href="https://github.com/MichalScigalski" target="_blank" rel="noreferrer">@MichalScigalski</a>
                 </div>
             </Link>
         </header>
