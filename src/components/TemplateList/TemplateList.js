@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Meme from "../Meme/Meme";
 import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';
 import axios from "axios";
+import { MemeTemplatesContext } from '../../memeTemplatesContext';
 
 const TemplateList = ({ setCurrentTemplate }) => {
     const [search, setSearch] = useState('');
@@ -24,7 +25,7 @@ const TemplateList = ({ setCurrentTemplate }) => {
     };
 
     const filteredTemplates = memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase()));
-    
+
     return (
         <div className="TemplateList">
             <SearchBox className="TemplateList__searchBar" search={search} setSearch={setSearch} />
