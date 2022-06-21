@@ -15,11 +15,9 @@ const App = () => {
     <div className='App'>
       <Navigation />
       <Routes>
-        <Route path='/'>
           <Route index element={<TemplateList />} />
-          <Route path='/create' element={<CreatingMeme />} />
-          <Route path='/meme/:id' element={<GeneratedMeme />} />
-        </Route>
+          <Route path='create' element={<CreatingMeme />} />
+          <Route path='meme/:id' element={<GeneratedMeme />} />
       </Routes>
     </div>
   );
