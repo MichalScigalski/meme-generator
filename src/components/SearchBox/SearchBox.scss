@@ -2,12 +2,16 @@
 
 .SearchBox {
     background-color: white;
-        margin: 1rem;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        padding: 4px;
-        width: 400px;
+    margin: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    width: 400px;
+    
+    @include mobile {
+        width: auto;
+    }
 
     img:first-child {
         height: 20px;

@@ -7,6 +7,8 @@
     background-color: white;
     padding: 1rem 0;
     margin-bottom: 1rem;    
+
+   
     &__Logo {
         justify-content: space-around;
         width: 100%;
@@ -14,6 +16,10 @@
         align-items: center;
         color: black;
         text-decoration: none;
+
+        @include small {
+            flex-direction: column;
+        }
 
         img {
             height: 50px;
