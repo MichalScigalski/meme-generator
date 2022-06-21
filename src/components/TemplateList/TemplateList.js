@@ -1,39 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import Meme from "../Meme/Meme";
 import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';
-import axios from "axios";
+import { MemeContext } from '../../context/MemeContext';
 
-const TemplateList = ({ setCurrentTemplate }) => {
+const TemplateList = () => {
     const [search, setSearch] = useState('');
-    const [memeTemplates, setMemeTemplates] = useState([]);
+    const { memeTemplatesContext } = useContext(MemeContext);
 
-    useEffect(() => {
-        fetchTemplatesMeme();
-    }, []);
+    const filteredTemplates = memeTemplatesContext.filter((i) => i.name.toLowerCase().match(search.toLowerCase()));
 
-    const fetchTemplatesMeme = () => {
-        axios
-        .get("https://api.imgflip.com/get_memes")
-        .then(res => {
-            setMemeTemplates(res.data.data.memes);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    };
-
-    const filteredTemplates = memeTemplates.filter((i) => i.name.toLowerCase().match(search.toLowerCase()));
-    
     return (
         <div className="TemplateList">
             <SearchBox className="TemplateList__searchBar" search={search} setSearch={setSearch} />
             <div className="TemplateList__memes">
-                {filteredTemplates.map(el => (
+                {filteredTemplates.map(meme => (
                     <Meme
-                        onClick={() => setCurrentTemplate(el)}
-                        template={el}
-                        key={el.id}
+                        meme={meme}
+                        key={meme.id}
                     />
                 ))}
             </div>

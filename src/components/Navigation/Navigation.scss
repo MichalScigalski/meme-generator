@@ -6,24 +6,41 @@
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.098);
     background-color: white;
     padding: 1rem 0;
+    margin-bottom: 1rem;    
     &__Logo {
-        font-family: $hind;
-        letter-spacing: -1px;
-        font-size: 32px;
-        margin-left: 2rem;
+        justify-content: space-around;
+        width: 100%;
         display: flex;
         align-items: center;
         color: black;
         text-decoration: none;
-        @include mobile {
-            font-size: 24px;
-        }
+
         img {
             height: 50px;
             margin: 1rem;
         }
         span {
+            font-family: $hind;
+            letter-spacing: -1px;
+            font-size: 32px;
             color: $primary;
+            @include mobile {
+                font-size: 24px;
+            }
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a {
+                margin-left: 8px;
+                color: black;
+                text-underline-offset: 4px;
+                font-weight: 600;
+                &:hover{
+                    color: purple;
+                }
+            }
         }
     }
 }

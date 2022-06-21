@@ -1,9 +1,9 @@
-# meme generator alpha
+# Meme generator
 
-Web app made for creating memes from templates.
+Web app made for creating memes using public api.
 
 ## Demo
-http://meme-generator-ten-sigma.vercel.app/
+https://meme-generator-ten-sigma.vercel.app/
 
 ## Api
 <code>https://imgflip.com/api</code>
