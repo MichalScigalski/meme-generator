@@ -5,46 +5,21 @@ import GeneratedMeme from "./components/GeneratedMeme/GeneratedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
 import Navigation from "./components/Navigation/Navigation";
 
-// import { ReactComponent as Loader } from "./assets/loader.svg";
 import {
   Routes,
   Route,
 } from "react-router-dom";
 
-
 const App = () => {
-  const [currentTemplate, setCurrentTemplate] = useState(null);
-  const [createdMeme, setCreatedMeme] = useState(null);
-  // const [loading, setLoading] = useState(false);
-
   return (
     <div className="App">
       <Navigation />
       <Routes>
-        <Route
-          path="/"
-          element={
-              <TemplateList setCurrentTemplate={setCurrentTemplate} />
-          }
-        />
-        <Route
-          path="/create"
-          element={
-            <CreatingMeme
-              template={currentTemplate}
-              setCreatedMeme={setCreatedMeme}
-            />
-          }
-        />
-        <Route
-          path="/meme/:id"
-          element={
-            <GeneratedMeme
-              createdMeme={createdMeme}
-              setCreatedMeme={setCreatedMeme}
-            />
-          }
-        />
+        <Route path='/'>
+          <Route index element={<TemplateList />} />
+          <Route path='/create' element={<CreatingMeme />} />
+          <Route path='/meme/:id' element={<GeneratedMeme />} />
+        </Route>
       </Routes>
     </div>
   );

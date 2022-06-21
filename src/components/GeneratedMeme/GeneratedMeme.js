@@ -4,11 +4,10 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import undoIcon from '../../assets/icons/undo.png';
 
-const GeneratedMeme = ({ createdMeme }) => {
+const GeneratedMeme = () => {
     let navigate = useNavigate();
     const { id } = useParams();
-    
-    const memeUrl = createdMeme ? createdMeme.data.url : `https://i.imgflip.com/${id}.jpg`;
+    const memeUrl = `https://i.imgflip.com/${id}.jpg`;
 
     const downloadMeme = () => {
         axios({
