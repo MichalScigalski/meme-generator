@@ -12,10 +12,10 @@ const CreatingMeme = () => {
     const [memeTextSecond, setMemeTextSecond] = useState('');
 
     useEffect(() => {
-        if(currentTemplateContext.length<=0) {
+        if(currentTemplateContext<=0) {
             navigate('/');
         }
-    }, []);
+    }, [currentTemplateContext, navigate]);
 
     const objectToParam = obj => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);

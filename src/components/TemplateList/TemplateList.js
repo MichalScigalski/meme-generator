@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import Meme from "../Meme/Meme";
 import SearchBox from '../SearchBox/SearchBox';
 import './TemplateList.scss';

@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useState } from "react";
+import React from "react";
 import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
 import GeneratedMeme from "./components/GeneratedMeme/GeneratedMeme";
 import TemplateList from "./components/TemplateList/TemplateList";
