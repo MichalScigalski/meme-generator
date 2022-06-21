@@ -1,18 +1,18 @@
-import "./App.scss";
-import React from "react";
-import CreatingMeme from "./components/CreatingMeme/CreatingMeme";
-import GeneratedMeme from "./components/GeneratedMeme/GeneratedMeme";
-import TemplateList from "./components/TemplateList/TemplateList";
-import Navigation from "./components/Navigation/Navigation";
+import './App.scss';
+import React from 'react';
+import CreatingMeme from './components/CreatingMeme/CreatingMeme';
+import GeneratedMeme from './components/GeneratedMeme/GeneratedMeme';
+import TemplateList from './components/TemplateList/TemplateList';
+import Navigation from './components/Navigation/Navigation';
 
 import {
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <Navigation />
       <Routes>
         <Route path='/'>

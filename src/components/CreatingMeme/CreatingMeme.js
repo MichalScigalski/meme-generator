@@ -19,7 +19,7 @@ const CreatingMeme = () => {
 
     const objectToParam = obj => {
         const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`);
-        return "?" + params.join("&");
+        return '?' + params.join('&');
     };
 
     const createMeme = e => {
@@ -36,25 +36,25 @@ const CreatingMeme = () => {
             .then(res => {
                 setCreatedMemeContext(res.data);
                 const idMeme = res.data.data.page_url.split('/');
-                navigate("/meme/" + idMeme[idMeme.length - 1]);
+                navigate('/meme/' + idMeme[idMeme.length - 1]);
             })
             .catch(err => {
                 console.log(err);
             });
     };
     return (
-        <div className="CreatingMeme">
-            <span className="backButton" onClick={() => navigate(-1)}>
-                <img src={undoIcon} alt="undoIcon" />
+        <div className='CreatingMeme'>
+            <span className='backButton' onClick={() => navigate(-1)}>
+                <img src={undoIcon} alt='undoIcon' />
             </span>
             <form onSubmit={createMeme}>
                 <div>
                     <img src={currentTemplateContext.url} title={currentTemplateContext.name} alt={currentTemplateContext.name + '-img'} />
                 </div>
                 <span>{currentTemplateContext.name}</span>
-                <input onChange={e => setMemeTextFirst(e.target.value)} type="text" placeholder="First text" />
-                <input onChange={e => setMemeTextSecond(e.target.value)} type="text" placeholder="Second text" />
-                <button className="button" type="submit">Create meme</button>
+                <input onChange={e => setMemeTextFirst(e.target.value)} type='text' placeholder='First text' />
+                <input onChange={e => setMemeTextSecond(e.target.value)} type='text' placeholder='Second text' />
+                <button className='button' type='submit'>Create meme</button>
             </form>
         </div>
     )

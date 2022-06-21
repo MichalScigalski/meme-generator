@@ -7,7 +7,7 @@ const Navigation = () => {
     return (
         <header className='Navigation'>
             <div className='Navigation__Logo' >
-                <Link to={"/"} style={{ textDecoration: 'none' }}> <span>MemeGenerator</span> </Link>
+                <Link to='/'><span>MemeGenerator</span></Link>
                 <div>
                     <FaGithub fontSize={22} />
                     <a href="https://github.com/MichalScigalski" target="_blank" rel="noreferrer">@MichalScigalski</a>

@@ -25,17 +25,17 @@ const GeneratedMeme = () => {
     }
 
     return (
-        <div className="GeneratedMeme">
-            <span className="backButton" onClick={() => navigate(-1)}>
-                <img src={undoIcon} alt="undoIcon" />
+        <div className='GeneratedMeme'>
+            <span className='backButton' onClick={() => navigate(-1)}>
+                <img src={undoIcon} alt='undoIcon' />
             </span>
             <h2>This is your new meme</h2>
-            <div className="GeneratedMeme__image">
-                <img src={memeUrl} alt="generated meme" />
+            <div className='GeneratedMeme__image'>
+                <img src={memeUrl} alt='generated meme' />
             </div>
-            <div className="GeneratedMeme__buttons">
-                <button className="button" onClick={downloadMeme}>Download</button>
-                <button className="button" onClick={() => navigate("/")}>Create another one</button>
+            <div className='GeneratedMeme__buttons'>
+                <button className='button' onClick={downloadMeme}>Download</button>
+                <button className='button' onClick={() => navigate('/')}>Create another one</button>
             </div>
         </div>
     )
